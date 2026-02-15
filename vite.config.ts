@@ -1,10 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Set the base path to match your GitHub repository name
-  // Format: /repository-name/
-  base: '/abion_website/',
+  base: '/abion_website/',  // Must match your repo name exactly
 })
+```
