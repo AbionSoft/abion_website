@@ -5,4 +5,3 @@ export default defineConfig({
   plugins: [react()],
   base: '/abion_website/',  // Must match your repo name exactly
 })
-```
