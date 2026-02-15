@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -18,8 +19,8 @@ const OverlayNav = () => {
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="container mx-auto flex items-center justify-between h-16 px-6">
-          <Link to="/" className="font-display text-xl font-bold tracking-tight text-foreground">
-            abion<span className="text-primary">.</span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Abion Labs" className="h-8" />
           </Link>
 
           {/* Desktop Nav */}
