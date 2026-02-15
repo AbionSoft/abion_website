@@ -41,7 +41,10 @@ jobs:
       
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install  # Using 'npm install' to handle lock file sync issues
+        run: |
+          npm install
+          npm install --save-dev @vitejs/plugin-react vite
+        # Ensures critical build dependencies are present
       
       # Step 4: Build the project
       - name: Build project
