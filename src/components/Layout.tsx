@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import OverlayNav from "./OverlayNav";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,9 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <span className="font-display text-xl font-bold text-foreground">
-                abion<span className="text-primary">.</span>
-              </span>
+              <img src={logo} alt="Abion Labs" className="h-8" />
               <p className="mt-3 text-sm text-muted-foreground max-w-xs">
                 Building innovative, scalable, future-focused digital products.
               </p>
