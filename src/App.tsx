@@ -38,7 +38,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/abion_website">
         <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>

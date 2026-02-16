@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',  // Must match your repo name exactly
+  base: '/abion_website/',  // Must match your repo name exactly
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
