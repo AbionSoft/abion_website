@@ -16,17 +16,17 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <img src={logo} alt="Abion Labs" className="h-8" />
+              <img src={logo} alt="Abion" className="h-8" />
               <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-                Building innovative, scalable, future-focused digital products.
+                A Beyond Innovation
               </p>
             </div>
             <div>
-              <h4 className="font-display font-semibold text-foreground mb-3">Pages</h4>
+              <h4 className="font-display font-semibold text-foreground mb-3">Quick Links</h4>
               <div className="flex flex-col gap-2">
                 {[
                   { label: "Home", path: "/" },
-                  { label: "About", path: "/about" },
+                  { label: "About Us", path: "/about" },
                   { label: "Services", path: "/services" },
                   { label: "Contact", path: "/contact" },
                 ].map((link) => (
@@ -44,11 +44,12 @@ const Layout = ({ children }: LayoutProps) => {
               <h4 className="font-display font-semibold text-foreground mb-3">Contact</h4>
               <p className="text-sm text-muted-foreground">Tokha, Kathmandu, Nepal</p>
               <p className="text-sm text-muted-foreground mt-1">+977-9868348282</p>
+              <p className="text-sm text-muted-foreground mt-1">abionsoft@gmail.com</p>
             </div>
           </div>
           <div className="section-divider mt-8" />
           <p className="text-xs text-muted-foreground mt-6 text-center">
-            © {new Date().getFullYear()} Abion Labs Pvt. Ltd. All rights reserved.
+            © 2026 AbionSoft Pvt. Ltd. All rights reserved.
           </p>
         </div>
       </footer>

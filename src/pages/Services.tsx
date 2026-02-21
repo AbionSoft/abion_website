@@ -1,50 +1,56 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Code, Smartphone, Globe, Palette, Rocket, Cpu, X, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Code, Smartphone, FileText, Palette } from "lucide-react";
+import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const services = [
   {
     icon: Code,
-    title: "Custom Software Development",
-    short: "Bespoke solutions tailored to your business challenges.",
-    detail: "We design, develop, and deploy custom software solutions from the ground up. Whether it's an internal tool, a customer-facing platform, or a complex enterprise system — we build it to scale with your growth.",
+    title: "Web Development",
+    features: [
+      "Custom websites tailored to your brand",
+      "Business websites that drive conversions",
+      "Web applications with modern architecture",
+      "Responsive design for all devices",
+      "Performance optimization and SEO",
+    ],
   },
   {
     icon: Smartphone,
-    title: "Mobile App Development",
-    short: "iOS and Android apps that users love.",
-    detail: "From concept to launch, we create native and cross-platform mobile applications with intuitive UX, high performance, and beautiful interfaces that keep users engaged.",
+    title: "App Development",
+    features: [
+      "Android & iOS native applications",
+      "Cross-platform solutions with React Native",
+      "UI/UX optimized mobile experiences",
+      "App store deployment and support",
+      "Scalable backend infrastructure",
+    ],
   },
   {
-    icon: Globe,
-    title: "Web Application Development",
-    short: "Modern, fast, and scalable web platforms.",
-    detail: "We build responsive, real-time web applications using cutting-edge frameworks. SPAs, progressive web apps, dashboards — all designed for speed and reliability.",
+    icon: FileText,
+    title: "Content Writing",
+    features: [
+      "Website content that engages visitors",
+      "SEO-optimized content for better rankings",
+      "Technical writing and documentation",
+      "Brand storytelling that resonates",
+      "Blog posts and marketing copy",
+    ],
   },
   {
     icon: Palette,
-    title: "UI/UX Design",
-    short: "Interfaces that are intuitive and delightful.",
-    detail: "Our design process is rooted in user research, wireframing, prototyping, and testing. We create interfaces that not only look stunning but drive measurable business outcomes.",
-  },
-  {
-    icon: Rocket,
-    title: "Product Development",
-    short: "From idea to market-ready product.",
-    detail: "We help startups and enterprises take ideas from napkin sketches to fully launched products. Strategy, MVP development, iteration, and scaling — we're with you at every stage.",
-  },
-  {
-    icon: Cpu,
-    title: "Technical Consulting",
-    short: "Expert guidance for your tech decisions.",
-    detail: "Need help choosing the right stack, architecture, or strategy? Our experienced engineers provide hands-on consulting to help you make informed technology decisions.",
+    title: "Graphic Design",
+    features: [
+      "Brand identity and logo design",
+      "Social media graphics and templates",
+      "Marketing materials and brochures",
+      "UI design assets for digital products",
+      "Print and digital design solutions",
+    ],
   },
 ];
 
 const Services = () => {
-  const [activeService, setActiveService] = useState<number | null>(null);
-
   return (
     <div className="overflow-hidden">
       {/* Hero */}
@@ -61,78 +67,76 @@ const Services = () => {
               What We <span className="text-gradient">Build</span>
             </h1>
             <p className="text-muted-foreground mt-6 max-w-xl leading-relaxed text-lg">
-              End-to-end technology services designed to turn your vision into powerful digital products.
+              We provide end-to-end digital solutions tailored to your business needs.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Sections */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-24 max-w-6xl mx-auto">
             {services.map((service, i) => (
-              <ScrollReveal key={service.title} delay={i * 0.08}>
-                <button
-                  onClick={() => setActiveService(i)}
-                  className="group w-full text-left p-8 rounded-xl border border-border/50 bg-card/50 hover-glow transition-all duration-500 hover:border-primary/30 h-full flex flex-col"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-primary" />
+              <ScrollReveal key={service.title}>
+                <div className={`grid md:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                  {/* Text Content */}
+                  <div className={i % 2 === 1 ? 'md:order-2' : ''}>
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                      <service.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
+                      {service.title}
+                    </h2>
+                    <ul className="mt-6 space-y-3">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3 text-muted-foreground">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="font-display font-semibold text-foreground text-lg">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">{service.short}</p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium mt-4 group-hover:gap-3 transition-all">
-                    Learn More <ArrowRight className="w-4 h-4" />
+
+                  {/* Visual Element */}
+                  <div className={i % 2 === 1 ? 'md:order-1' : ''}>
+                    <div className="relative aspect-square rounded-2xl border border-border/50 bg-card/50 p-8 flex items-center justify-center overflow-hidden group hover-glow">
+                      <div className="absolute inset-0 bg-grid opacity-20" />
+                      <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-primary/10 blur-2xl group-hover:bg-primary/20 transition-colors" />
+                      <div className="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-accent/10 blur-2xl group-hover:bg-accent/20 transition-colors" />
+                      <service.icon className="w-24 h-24 text-primary/30 relative z-10 group-hover:scale-110 transition-transform" />
+                    </div>
                   </div>
-                </button>
+                </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Service Detail Overlay */}
-      <AnimatePresence>
-        {activeService !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6"
-            onClick={() => setActiveService(null)}
-          >
-            <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative glass-strong rounded-2xl p-8 md:p-12 max-w-lg w-full glow-primary"
-            >
-              <button
-                onClick={() => setActiveService(null)}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-muted transition-colors"
+      <div className="section-divider" />
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-radial">
+        <div className="container mx-auto px-6">
+          <ScrollReveal>
+            <div className="glass rounded-2xl p-10 md:p-16 text-center max-w-3xl mx-auto glow-primary">
+              <h2 className="font-display text-3xl md:text-4xl font-bold">
+                Ready to Get <span className="text-gradient">Started?</span>
+              </h2>
+              <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
+                Let's discuss your project and create something amazing together.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-3 mt-8 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
               >
-                <X className="w-4 h-4 text-foreground" />
-              </button>
-              {(() => {
-                const s = services[activeService];
-                return (
-                  <>
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                      <s.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-display text-2xl font-bold text-foreground">{s.title}</h3>
-                    <p className="text-muted-foreground mt-4 leading-relaxed">{s.detail}</p>
-                  </>
-                );
-              })()}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                Contact Us
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </div>
   );
 };

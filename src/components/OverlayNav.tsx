@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
+  { label: "About Us", path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Contact", path: "/contact" },
 ];
@@ -20,7 +20,7 @@ const OverlayNav = () => {
       <header className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="container mx-auto flex items-center justify-between h-16 px-6">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Abion Labs" className="h-8" />
+            <img src={logo} alt="Abion" className="h-8" />
           </Link>
 
           {/* Desktop Nav */}
@@ -29,9 +29,8 @@ const OverlayNav = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                  location.pathname === link.path ? "text-primary" : "text-muted-foreground"
-                }`}
+                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-muted-foreground"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -81,9 +80,8 @@ const OverlayNav = () => {
                   <Link
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`font-display text-4xl font-bold transition-colors duration-300 hover:text-primary ${
-                      location.pathname === link.path ? "text-primary" : "text-foreground"
-                    }`}
+                    className={`font-display text-4xl font-bold transition-colors duration-300 hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-foreground"
+                      }`}
                   >
                     {link.label}
                   </Link>

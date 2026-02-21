@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Send, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, CheckCircle } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Contact = () => {
@@ -9,6 +9,7 @@ const Contact = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    // In production, this would send to your backend
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
     setForm({ name: "", email: "", phone: "", message: "" });
@@ -36,11 +37,61 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Contact Info Section */}
+      <section className="py-16 bg-gradient-radial">
+        <div className="container mx-auto px-6">
+          <ScrollReveal>
+            <div className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="p-6 rounded-xl border border-border/50 bg-card/50 text-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-foreground">Location</h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Tokha, Kathmandu, Nepal
+                  </p>
+                </div>
+
+                <div className="p-6 rounded-xl border border-border/50 bg-card/50 text-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-foreground">Phone</h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    +977-9868348282
+                  </p>
+                </div>
+
+                <div className="p-6 rounded-xl border border-border/50 bg-card/50 text-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Mail className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-foreground">Email</h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    abionsoft@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-            {/* Form */}
+          <div className="max-w-2xl mx-auto">
             <ScrollReveal>
+              <div className="text-center mb-12">
+                <p className="text-primary text-sm tracking-widest uppercase font-medium">Get in Touch</p>
+                <h2 className="font-display text-3xl md:text-4xl font-bold mt-2">
+                  Send Us a <span className="text-gradient">Message</span>
+                </h2>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
               <div className="relative">
                 <AnimatePresence mode="wait">
                   {submitted ? (
@@ -64,31 +115,53 @@ const Contact = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       onSubmit={handleSubmit}
-                      className="space-y-6"
+                      className="space-y-6 p-8 rounded-xl border border-border/50 bg-card/50"
                     >
-                      {[
-                        { name: "name" as const, label: "Name", type: "text" },
-                        { name: "email" as const, label: "Email", type: "email" },
-                        { name: "phone" as const, label: "Phone", type: "tel" },
-                      ].map((field) => (
-                        <div key={field.name} className="relative group">
-                          <input
-                            type={field.type}
-                            required={field.name !== "phone"}
-                            value={form[field.name]}
-                            onChange={(e) => setForm({ ...form, [field.name]: e.target.value })}
-                            placeholder=" "
-                            className="peer w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder-transparent"
-                          />
-                          <label className="absolute left-4 top-3 text-sm text-muted-foreground transition-all peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-secondary peer-focus:px-1 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-secondary peer-[:not(:placeholder-shown)]:px-1 pointer-events-none">
-                            {field.label}
-                          </label>
-                        </div>
-                      ))}
+                      <div className="relative group">
+                        <input
+                          type="text"
+                          required
+                          value={form.name}
+                          onChange={(e) => setForm({ ...form, name: e.target.value })}
+                          placeholder=" "
+                          className="peer w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder-transparent"
+                        />
+                        <label className="absolute left-4 top-3 text-sm text-muted-foreground transition-all peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-secondary peer-focus:px-1 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-secondary peer-[:not(:placeholder-shown)]:px-1 pointer-events-none">
+                          Name
+                        </label>
+                      </div>
+
+                      <div className="relative group">
+                        <input
+                          type="email"
+                          required
+                          value={form.email}
+                          onChange={(e) => setForm({ ...form, email: e.target.value })}
+                          placeholder=" "
+                          className="peer w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder-transparent"
+                        />
+                        <label className="absolute left-4 top-3 text-sm text-muted-foreground transition-all peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-secondary peer-focus:px-1 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-secondary peer-[:not(:placeholder-shown)]:px-1 pointer-events-none">
+                          Email
+                        </label>
+                      </div>
+
+                      <div className="relative group">
+                        <input
+                          type="tel"
+                          value={form.phone}
+                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                          placeholder=" "
+                          className="peer w-full px-4 py-3 rounded-lg bg-secondary border border-border/50 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder-transparent"
+                        />
+                        <label className="absolute left-4 top-3 text-sm text-muted-foreground transition-all peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-secondary peer-focus:px-1 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-secondary peer-[:not(:placeholder-shown)]:px-1 pointer-events-none">
+                          Phone (Optional)
+                        </label>
+                      </div>
+
                       <div className="relative group">
                         <textarea
                           required
-                          rows={4}
+                          rows={5}
                           value={form.message}
                           onChange={(e) => setForm({ ...form, message: e.target.value })}
                           placeholder=" "
@@ -98,57 +171,16 @@ const Contact = () => {
                           Message
                         </label>
                       </div>
+
                       <button
                         type="submit"
                         className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity glow-primary"
                       >
-                        Send Message <Send className="w-4 h-4" />
+                        Send Message
                       </button>
                     </motion.form>
                   )}
                 </AnimatePresence>
-              </div>
-            </ScrollReveal>
-
-            {/* Info */}
-            <ScrollReveal delay={0.1}>
-              <div className="space-y-8">
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-foreground">Get in Touch</h3>
-                  <p className="text-muted-foreground mt-2 leading-relaxed">
-                    Ready to start your next project? Reach out and let's discuss how we can help.
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground">Location</h4>
-                      <p className="text-sm text-muted-foreground">Tokha, Kathmandu, Nepal</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground">Phone</h4>
-                      <p className="text-sm text-muted-foreground">+977-9868348282</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Stylized Map */}
-                <div className="rounded-xl border border-border/50 bg-card/50 p-6 h-48 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-grid opacity-40" />
-                  <div className="relative z-10 text-center">
-                    <MapPin className="w-8 h-8 text-primary mx-auto animate-float" />
-                    <p className="text-sm text-muted-foreground mt-2">Tokha, Kathmandu</p>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
           </div>

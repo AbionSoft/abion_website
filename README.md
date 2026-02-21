@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# Abion Official Website
 
-## Project info
+**Company:** Abion (AbionSoft Pvt. Ltd.)  
+**Tagline:** A Beyond Innovation  
+**Location:** Tokha, Kathmandu, Nepal
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🎯 Overview
 
-## How can I edit this code?
+Modern, clean, and optimized official website for Abion — a software development company building innovative, scalable, future-focused digital products.
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+- **Modern 3D Experience**: Subtle floating elements and smooth animations
+- **Clean Design**: Professional, minimal UI with premium feel
+- **Fully Responsive**: Mobile-first design approach
+- **Performance Optimized**: Fast loading with code splitting
+- **SEO Ready**: Semantic HTML and meta tags
+- **Smooth Animations**: Framer Motion for elegant transitions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 📄 Pages
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Home** - Hero with 3D elements, services preview, and CTA
+2. **About Us** - Company story, vision, and core values
+3. **Services** - Web Development, App Development, Content Writing, Graphic Design
+4. **Contact** - Contact form and company information
 
-**Use your preferred IDE**
+## 🛠 Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: Radix UI + shadcn/ui
+- **Routing**: React Router v6
+- **Icons**: Lucide React
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📦 Installation
 
-Follow these steps:
+```bash
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Run development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Design System
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Colors**: Professional dark theme with blue primary and purple accent
+- **Typography**: Inter (body) + Space Grotesk (headings)
+- **Animations**: Smooth, meaningful transitions
+- **Components**: Reusable, maintainable structure
 
-**Use GitHub Codespaces**
+## 📞 Contact Information
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Location**: Tokha, Kathmandu, Nepal
+- **Phone**: +977-9868348282
+- **Email**: abionsoft@gmail.com
 
-## What technologies are used for this project?
+## 📝 License
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2026 AbionSoft Pvt. Ltd. All rights reserved.
