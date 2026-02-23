@@ -17,22 +17,23 @@ const OverlayNav = () => {
   return (
     <>
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass-strong">
-        <div className="container mx-auto flex items-center justify-between h-16 px-6">
+      <header className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-border/50">
+        <div className="container mx-auto flex items-center justify-between h-20 px-6">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Abion" className="h-8" />
+            <img src={logo} alt="Abion" className="h-10" />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-muted-foreground"
+                className={`text-base font-medium transition-colors duration-300 hover:text-primary relative group ${location.pathname === link.path ? "text-primary" : "text-muted-foreground"
                   }`}
               >
                 {link.label}
+                <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transition-transform duration-300 ${location.pathname === link.path ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </Link>
             ))}
           </nav>

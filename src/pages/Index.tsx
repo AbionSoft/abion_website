@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Code, Smartphone, FileText, Palette } from "lucide-react";
+import { Code, Smartphone, FileText, Palette, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { HeroAnimation } from "./HeroAnimation";
 
 const services = [
   {
@@ -30,69 +31,100 @@ const Index = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section with 3D Experience */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-hero">
-        <div className="absolute inset-0 bg-grid opacity-30" />
+      <section className="relative bg-[#0d0f16] text-white selection:bg-blue-500/30 font-sans overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[80px] left-1/4 w-[288px] h-[288px] bg-[#3c83f6]/5 blur-[32px] rounded-full" />
+          <div className="absolute bottom-[80px] right-1/4 w-[384px] h-[384px] bg-[#765eed]/5 blur-[32px] rounded-full" />
+          <div className="absolute top-1/2 left-1/3 w-[256px] h-[256px] bg-white/5 blur-[32px] rounded-full opacity-20" />
+        </div>
 
-        {/* 3D Floating Elements */}
-        <div className="absolute top-20 left-1/4 w-72 h-72 rounded-full bg-primary/5 blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 rounded-full bg-primary/3 blur-3xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl"
-          >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-primary font-medium text-sm tracking-widest uppercase mb-4"
+        {/* Hero Content Container */}
+        <div className="container mx-auto px-6 py-20 lg:py-24 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20 relative min-h-[calc(100vh-5rem)]">
+          {/* Left Side: Content */}
+          <div className="flex-1 flex flex-col items-start gap-8 z-10 max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-[#3c83f6] text-xs font-semibold tracking-[2px] uppercase font-['Inter']"
             >
               Abion — A Beyond Innovation
-            </motion.p>
-            <h1 className="font-display text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] font-['Space_Grotesk'] text-[#e7e9ef]"
+            >
               Technology That{" "}
-              <span className="text-gradient">Transforms</span>
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-              We build innovative, scalable, future-focused digital products that redefine possibilities.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-8">
+              <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#3c83f6] to-[#765eed]">
+                Transforms
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[#818898] text-base lg:text-lg leading-relaxed max-w-xl"
+            >
+              We build innovative, scalable, and future-focused digital products that redefine possibilities and drive business growth.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-4 pt-2"
+            >
               <Link
                 to="/contact"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity glow-primary"
+                className="group relative px-8 py-3.5 bg-[#3c83f6] rounded-xl text-[#0d0f16] font-semibold text-sm transition-all hover:shadow-[0_0_30px_-5px_rgba(60,131,246,0.6)] hover:scale-105 active:scale-95"
               >
-                Get in Touch
+                <span className="relative z-10 flex items-center gap-2">
+                  Get in Touch <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </Link>
+
               <Link
                 to="/services"
-                className="inline-flex items-center px-6 py-3 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors"
+                className="px-8 py-3.5 border border-[#272a35] rounded-xl text-[#e7e9ef] font-semibold text-sm hover:bg-[#272a35]/50 transition-colors active:scale-95"
               >
                 View Services
               </Link>
-            </div>
+            </motion.div>
+          </div>
+
+          {/* Right Side: Interactive Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-1 w-full max-w-[550px] h-[350px] sm:h-[450px] lg:h-[550px] flex items-center justify-center relative z-10"
+          >
+            <HeroAnimation />
           </motion.div>
         </div>
       </section>
 
       {/* About Preview Section */}
-      <section className="py-24 bg-gradient-radial">
+      <section className="py-20 lg:py-28 bg-gradient-radial">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="max-w-2xl mx-auto text-center">
-              <p className="text-primary text-sm tracking-widest uppercase font-medium">About Abion</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mt-2">
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-primary text-xs tracking-[2px] uppercase font-semibold">About Abion</p>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 leading-tight">
                 A Beyond <span className="text-gradient">Innovation</span>
               </h2>
-              <p className="text-muted-foreground mt-6 leading-relaxed text-lg">
+              <p className="text-muted-foreground mt-6 leading-relaxed text-base lg:text-lg">
                 We craft digital solutions that empower businesses to grow, scale, and lead in a technology-driven world.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center px-6 py-3 mt-8 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors"
+                className="inline-flex items-center px-8 py-3 mt-8 rounded-lg border-2 border-border text-foreground font-semibold text-sm hover:bg-secondary hover:border-primary/50 transition-all"
               >
                 Learn More
               </Link>
@@ -104,24 +136,26 @@ const Index = () => {
       <div className="section-divider" />
 
       {/* Services Preview Grid */}
-      <section className="py-24">
+      <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <p className="text-primary text-sm tracking-widest uppercase font-medium text-center">What We Do</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 text-center">
-              Our Services
-            </h2>
+            <div className="text-center mb-16">
+              <p className="text-primary text-xs tracking-[2px] uppercase font-semibold">What We Do</p>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
+                Our Services
+              </h2>
+            </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {services.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 0.1}>
-                <div className="group p-6 rounded-xl border border-border/50 bg-card/50 hover-glow transition-all duration-500 hover:border-primary/30 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-5 h-5 text-primary" />
+                <div className="group p-8 rounded-xl border border-border/50 bg-card/50 hover-glow transition-all duration-500 hover:border-primary/30 h-full flex flex-col">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <item.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-display font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -132,15 +166,15 @@ const Index = () => {
       <div className="section-divider" />
 
       {/* Why Abion Section */}
-      <section className="py-24 bg-gradient-radial">
+      <section className="py-20 lg:py-28 bg-gradient-radial">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="max-w-2xl mx-auto text-center">
-              <p className="text-primary text-sm tracking-widest uppercase font-medium">Why Abion</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mt-2">
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-primary text-xs tracking-[2px] uppercase font-semibold">Why Abion</p>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 leading-tight">
                 Building Digital <span className="text-gradient">Foundations</span>
               </h2>
-              <p className="text-muted-foreground mt-6 leading-relaxed text-lg">
+              <p className="text-muted-foreground mt-6 leading-relaxed text-base lg:text-lg">
                 We don't just build software. We build digital foundations for ambitious ideas.
                 At Abion, innovation meets responsibility, creativity meets precision, and your vision becomes reality.
               </p>
@@ -152,19 +186,19 @@ const Index = () => {
       <div className="section-divider" />
 
       {/* Call to Action Section */}
-      <section className="py-24">
+      <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="glass rounded-2xl p-10 md:p-16 text-center max-w-3xl mx-auto glow-primary">
-              <h2 className="font-display text-3xl md:text-4xl font-bold">
+            <div className="glass rounded-2xl p-12 md:p-16 text-center max-w-4xl mx-auto glow-primary">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 Ready to Build Something <span className="text-gradient">Extraordinary?</span>
               </h2>
-              <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
+              <p className="text-muted-foreground mt-6 text-base lg:text-lg max-w-2xl mx-auto">
                 Let's discuss your next project and turn your vision into a scalable digital product.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center px-8 py-3 mt-8 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+                className="inline-flex items-center px-10 py-4 mt-10 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity shadow-lg hover:shadow-xl"
               >
                 Get in Touch
               </Link>

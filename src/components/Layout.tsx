@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
       <OverlayNav />
-      <main className="pt-16">{children}</main>
+      <main className="pt-20">{children}</main>
       <footer className="border-t border-border/50 bg-card/50">
         <div className="container mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
